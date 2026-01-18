@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Cloud, CloudRain, Sun, Wind } from 'lucide-react';
+import { Cloud, CloudRain, Sun, Wind, MapPin } from 'lucide-react';
 
 // API gratuita OpenWeatherMap - Ottieni la tua chiave su https://openweathermap.org/api
-const WEATHER_API_KEY = 'demo'; // L'utente dovrà inserire la propria chiave
+// ISTRUZIONI: Sostituisci 'TUA_API_KEY_QUI' con la tua chiave gratuita
+const WEATHER_API_KEY = 'TUA_API_KEY_QUI';
 const CITY = 'Milano';
 
 export const WeatherWidget = () => {
@@ -18,7 +19,7 @@ export const WeatherWidget = () => {
 
   // Funzione per ottenere meteo reale
   const fetchRealWeather = async () => {
-    if (WEATHER_API_KEY === 'demo') {
+    if (WEATHER_API_KEY === 'TUA_API_KEY_QUI') {
       // Usa dati simulati se non c'è API key
       return;
     }
@@ -70,11 +71,11 @@ export const WeatherWidget = () => {
 
   const getWeatherIcon = () => {
     const condition = weather.condition.toLowerCase();
-    if (condition.includes('sole') || condition.includes('sereno')) {
+    if (condition.includes('sole') || condition.includes('sereno') || condition.includes('clear')) {
       return <Sun className="h-12 w-12 text-warning" />;
-    } else if (condition.includes('nuvo') || condition.includes('coperto')) {
+    } else if (condition.includes('nuvo') || condition.includes('coperto') || condition.includes('cloud')) {
       return <Cloud className="h-12 w-12 text-muted-foreground" />;
-    } else if (condition.includes('pioggia')) {
+    } else if (condition.includes('pioggia') || condition.includes('rain')) {
       return <CloudRain className="h-12 w-12 text-primary" />;
     }
     return <Sun className="h-12 w-12 text-warning" />;
@@ -107,7 +108,10 @@ export const WeatherWidget = () => {
             </div>
             <div className="space-y-3">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">Località</span>
+                <span className="text-muted-foreground flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  Località
+                </span>
                 <span className="font-medium text-foreground">{weather.location}</span>
               </div>
               <div className="flex items-center justify-between text-sm">
@@ -123,8 +127,12 @@ export const WeatherWidget = () => {
               </div>
             </div>
             {!weather.isReal && (
-              <div className="mt-4 text-xs text-muted-foreground p-2 bg-muted rounded">
-                💡 Per meteo reale, aggiungi la tua API key OpenWeatherMap nel codice
+              <div className="mt-4 text-xs text-muted-foreground p-3 bg-muted rounded">
+                <strong>💡 Per meteo reale:</strong><br/>
+                1. Registrati su <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer" className="text-primary underline">OpenWeatherMap</a><br/>
+                2. Ottieni la tua API key gratuita<br/>
+                3. Sostituisci 'TUA_API_KEY_QUI' nel file WeatherWidget.jsx<br/>
+                4. Riavvia l'app
               </div>
             )}
           </>
