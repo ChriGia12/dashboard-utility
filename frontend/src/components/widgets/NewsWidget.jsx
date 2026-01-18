@@ -9,43 +9,27 @@ const NEWS_API_KEY = 'bff3afe58e5e4571a21ba15e3537b7a0';
 const mockSportNews = [
   {
     id: 1,
-    title: 'Milan batte Inter 2-1 nel derby',
+    title: 'Sinner batte Alcaraz e vola in semifinale agli Australian Open 2025',
     source: 'Gazzetta dello Sport',
-    time: '1 ora fa',
-    category: 'Calcio',
-    url: '#'
+    time: '2 ore fa',
+    category: 'Tennis',
+    url: 'https://www.gazzetta.it/Tennis/'
   },
   {
     id: 2,
-    title: 'Sinner vince agli Australian Open',
-    source: 'Eurosport',
-    time: '3 ore fa',
-    category: 'Tennis',
-    url: '#'
+    title: 'Inter in testa alla Serie A, napoli insegue a -3 punti',
+    source: 'Sky Sport',
+    time: '5 ore fa',
+    category: 'Calcio',
+    url: 'https://sport.sky.it/calcio/serie-a'
   },
   {
     id: 3,
-    title: 'Ferrari presenta la nuova monoposto',
-    source: 'AutoSprint',
-    time: '5 ore fa',
+    title: 'Ferrari presenta aggiornamenti per la stagione F1 2025',
+    source: 'La Repubblica',
+    time: '1 giorno fa',
     category: 'Formula 1',
-    url: '#'
-  },
-  {
-    id: 4,
-    title: 'Italia convocazioni per amichevole',
-    source: 'FIGC',
-    time: '6 ore fa',
-    category: 'Calcio',
-    url: '#'
-  },
-  {
-    id: 5,
-    title: 'Olimpia Milano in finale di Eurolega',
-    source: 'Sky Sport',
-    time: '8 ore fa',
-    category: 'Basket',
-    url: '#'
+    url: 'https://www.repubblica.it/sport/formula-1/'
   }
 ];
 
