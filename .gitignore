@@ -42,3 +42,4 @@ electron-dist/
 coverage/
 .nyc_output/dashboard-utility-mac.zip
 frontend/public/dashboard-utility-mac.zip
+dashboard-utility-mac.zip
