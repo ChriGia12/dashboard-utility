@@ -67,6 +67,18 @@ async def get_status_checks():
     
     return status_checks
 
+@api_router.get("/download-dashboard")
+async def download_dashboard():
+    """Endpoint per scaricare il file ZIP della dashboard"""
+    zip_path = Path("/app/dashboard-utility-mac.zip")
+    if zip_path.exists():
+        return FileResponse(
+            path=str(zip_path),
+            filename="dashboard-utility-mac.zip",
+            media_type="application/zip"
+        )
+    return {"error": "File not found"}
+
 # Include the router in the main app
 app.include_router(api_router)
 
