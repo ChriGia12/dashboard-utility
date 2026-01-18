@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.dashboard.utility</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>CAMBIA_QUESTO_PERCORSO/app/avvia-dashboard.command</string>
+    </array>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <false/>
+    
+    <key>StandardOutPath</key>
+    <string>/tmp/dashboard-launchd.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/tmp/dashboard-launchd-error.log</string>
+    
+    <key>WorkingDirectory</key>
+    <string>CAMBIA_QUESTO_PERCORSO/app</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+</dict>
+</plist>
+
+<!-- 
+ISTRUZIONI:
+
+1. Sostituisci "CAMBIA_QUESTO_PERCORSO" con il percorso completo alla cartella app
+   Esempio: /Users/tuonome/Documents/Dashboard/app
+   
+2. Copia questo file in ~/Library/LaunchAgents/:
+   cp com.dashboard.utility.plist ~/Library/LaunchAgents/
+   
+3. Carica il servizio:
+   launchctl load ~/Library/LaunchAgents/com.dashboard.utility.plist
+   
+4. Per disabilitare:
+   launchctl unload ~/Library/LaunchAgents/com.dashboard.utility.plist
+   
+5. Per vedere i log:
+   tail -f /tmp/dashboard-launchd.log
+   tail -f /tmp/dashboard-launchd-error.log
+-->
