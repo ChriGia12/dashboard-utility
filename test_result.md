@@ -101,3 +101,174 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Test the complete dashboard utility application with 9 widgets including Clock, Weather, Todo, System Monitor, Calendar, Pomodoro Timer, Notes, News, and Shortcuts. Verify widget visibility, functionality, dark mode toggle, layout save/reset, and drag & resize capabilities."
+
+frontend:
+  - task: "Widget Visibility - All 9 widgets rendered"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/Dashboard.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to verify all 9 widgets are visible and properly rendered"
+
+  - task: "Clock Widget - Time display and updates"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/ClockWidget.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to verify time display and Italian date format"
+
+  - task: "Weather Widget - Temperature and conditions"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/WeatherWidget.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to verify weather data display and icon visibility"
+
+  - task: "Todo Widget - Add, toggle, delete tasks"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/TodoWidget.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test task management functionality"
+
+  - task: "System Monitor Widget - CPU, RAM, Disk usage"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/SystemMonitorWidget.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to verify system stats display and progress bars"
+
+  - task: "Calendar Widget - Calendar display and events"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/CalendarWidget.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to verify calendar rendering and events display"
+
+  - task: "Pomodoro Timer - Start, pause, reset functionality"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/PomodoroWidget.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test timer controls and countdown functionality"
+
+  - task: "Notes Widget - Add, save, delete notes"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/NotesWidget.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test note creation and management"
+
+  - task: "News Widget - News display"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/NewsWidget.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to verify news content display"
+
+  - task: "Shortcuts Widget - Quick links display"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/widgets/ShortcutsWidget.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to verify shortcuts functionality"
+
+  - task: "Dark Mode Toggle - Theme switching"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/Dashboard.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test dark/light mode toggle functionality"
+
+  - task: "Layout Save/Reset - Layout management"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/Dashboard.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test save and reset layout functionality with toast notifications"
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+
+test_plan:
+  current_focus:
+    - "Widget Visibility - All 9 widgets rendered"
+    - "Clock Widget - Time display and updates"
+    - "Weather Widget - Temperature and conditions"
+    - "Todo Widget - Add, toggle, delete tasks"
+    - "System Monitor Widget - CPU, RAM, Disk usage"
+    - "Pomodoro Timer - Start, pause, reset functionality"
+    - "Notes Widget - Add, save, delete notes"
+    - "Dark Mode Toggle - Theme switching"
+    - "Layout Save/Reset - Layout management"
+  stuck_tasks: []
+  test_all: true
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "testing"
+    message: "Starting comprehensive testing of dashboard utility application. Will test all 9 widgets, functionality, and UI interactions using Playwright automation."
