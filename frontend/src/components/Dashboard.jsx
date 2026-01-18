@@ -22,7 +22,7 @@ const defaultLayout = [
   { i: 'todo', x: 9, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
   { i: 'pomodoro', x: 0, y: 2, w: 3, h: 3, minW: 2, minH: 2 },
   { i: 'notes', x: 0, y: 5, w: 6, h: 4, minW: 3, minH: 3 },
-  { i: 'shortcuts', x: 6, y: 4, w: 3, h: 5, minW: 2, minH: 4 },
+  { i: 'shortcuts', x: 6, y: 4, w: 3, h: 5, minW: 2, minH: 2 },
 ];
 
 export const Dashboard = () => {
