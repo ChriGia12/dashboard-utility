@@ -8,6 +8,7 @@ import { NotesWidget } from '@/components/widgets/NotesWidget';
 import { PomodoroWidget } from '@/components/widgets/PomodoroWidget';
 import { ShortcutsWidget } from '@/components/widgets/ShortcutsWidget';
 import { CountdownWidget } from '@/components/widgets/CountdownWidget';
+import { SpotifyWidget } from '@/components/widgets/SpotifyWidget';
 import '/node_modules/react-grid-layout/css/styles.css';
 import '/node_modules/react-resizable/css/styles.css';
 import { toast } from 'sonner';
