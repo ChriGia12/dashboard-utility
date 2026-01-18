@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { ClockWidget } from '@/components/widgets/ClockWidget';
 import { WeatherWidget } from '@/components/widgets/WeatherWidget';
 import { TodoWidget } from '@/components/widgets/TodoWidget';
-import { SystemMonitorWidget } from '@/components/widgets/SystemMonitorWidget';
 import { CalendarWidget } from '@/components/widgets/CalendarWidget';
 import { NotesWidget } from '@/components/widgets/NotesWidget';
 import { PomodoroWidget } from '@/components/widgets/PomodoroWidget';
