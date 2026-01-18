@@ -221,7 +221,9 @@ code {
 
 /* Widget Styles */
 .widget-container {
-    @apply h-full rounded-xl border border-widget-border bg-widget-bg backdrop-blur-sm;
+    @apply h-full rounded-xl border backdrop-blur-sm;
+    background-color: hsl(var(--widget-bg));
+    border-color: hsl(var(--widget-border));
     box-shadow: var(--shadow-md);
     transition: box-shadow var(--transition-base);
 }
