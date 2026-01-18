@@ -15,14 +15,12 @@ import { toast } from 'sonner';
 const STORAGE_KEY = 'dashboard-layout';
 
 const defaultLayout = [
-  { i: 'clock', x: 0, y: 0, w: 2, h: 2, minW: 1, minH: 1 },
-  { i: 'conversions', x: 2, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
-  { i: 'countdown', x: 5, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
-  { i: 'todo', x: 8, y: 0, w: 4, h: 4, minW: 2, minH: 2 },
-  { i: 'calendar', x: 0, y: 4, w: 4, h: 5, minW: 3, minH: 3 },
-  { i: 'pomodoro', x: 4, y: 4, w: 3, h: 3, minW: 2, minH: 2 },
-  { i: 'notes', x: 7, y: 4, w: 5, h: 4, minW: 2, minH: 2 },
-  { i: 'shortcuts', x: 0, y: 9, w: 2, h: 2, minW: 1, minH: 1 },
+  { i: 'clock', x: 0, y: 0, w: 3, h: 2, minW: 2, minH: 2 },
+  { i: 'countdown', x: 3, y: 0, w: 4, h: 4, minW: 3, minH: 3 },
+  { i: 'todo', x: 7, y: 0, w: 5, h: 4, minW: 3, minH: 3 },
+  { i: 'pomodoro', x: 0, y: 2, w: 3, h: 3, minW: 2, minH: 2 },
+  { i: 'notes', x: 3, y: 4, w: 6, h: 4, minW: 3, minH: 3 },
+  { i: 'shortcuts', x: 9, y: 4, w: 3, h: 3, minW: 2, minH: 2 },
 ];
 
 export const Dashboard = () => {
