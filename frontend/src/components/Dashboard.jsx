@@ -79,7 +79,6 @@ export const Dashboard = () => {
     clock: <ClockWidget />,
     weather: <WeatherWidget />,
     todo: <TodoWidget />,
-    system: <SystemMonitorWidget />,
     calendar: <CalendarWidget />,
     notes: <NotesWidget />,
     pomodoro: <PomodoroWidget />,
