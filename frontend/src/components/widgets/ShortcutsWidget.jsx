@@ -27,7 +27,7 @@ export const ShortcutsWidget = () => {
         </div>
       </div>
       <div className="flex-1 p-4">
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-3">
           {shortcuts.map((shortcut) => {
             const IconComponent = shortcut.icon;
             return (
