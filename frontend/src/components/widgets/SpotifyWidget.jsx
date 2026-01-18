@@ -7,6 +7,11 @@ export const SpotifyWidget = () => {
   // Per ottenere l'ID: apri playlist su Spotify → Condividi → Copia link → prendi l'ID dall'URL
   const playlists = [
     {
+      id: '3vDe8D64ytZRKXt0AsJT0B', // La tua playlist personale
+      name: 'La Mia Playlist',
+      description: 'La tua playlist preferita'
+    },
+    {
       id: '37i9dQZF1DXcBWIGoYBM5M', // Today's Top Hits
       name: 'Top Hits',
       description: 'Le hit del momento'
