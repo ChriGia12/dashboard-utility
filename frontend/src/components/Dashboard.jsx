@@ -39,7 +39,7 @@ export const Dashboard = () => {
   const [isDark, setIsDark] = useState(() => {
     return localStorage.getItem('theme') === 'dark';
   });
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(1920); // Fixed width for 1920x1080 screen
   const containerRef = useRef(null);
 
   useEffect(() => {
