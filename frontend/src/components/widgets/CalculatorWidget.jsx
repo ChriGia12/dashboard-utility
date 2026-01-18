@@ -214,10 +214,6 @@ export const CalculatorWidget = () => {
           </div>
         )}
 
-        {/* Shortcut tastiera */}
-        <div className="mt-3 p-2 bg-primary/5 rounded text-xs text-muted-foreground">
-          ⌨️ Usa la tastiera: numeri, +−×÷, Enter, Esc, Backspace
-        </div>
       </div>
     </div>
   );

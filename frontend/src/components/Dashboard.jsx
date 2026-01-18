@@ -17,7 +17,7 @@ const STORAGE_KEY = 'dashboard-layout';
 
 const defaultLayout = [
   { i: 'clock', x: 0, y: 0, w: 3, h: 2, minW: 2, minH: 2 },
-  { i: 'calculator', x: 3, y: 0, w: 3, h: 5, minW: 2, minH: 4 },
+  { i: 'calculator', x: 3, y: 0, w: 3, h: 5, minW: 2, minH: 3 },
   { i: 'countdown', x: 6, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
   { i: 'todo', x: 9, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
   { i: 'pomodoro', x: 0, y: 2, w: 3, h: 3, minW: 2, minH: 2 },
