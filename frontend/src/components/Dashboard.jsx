@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import ReactGridLayout from 'react-grid-layout';
+import RGL, { WidthProvider } from 'react-grid-layout';
 import { GripVertical, Save, RotateCcw, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ClockWidget } from '@/components/widgets/ClockWidget';
@@ -15,7 +15,7 @@ import '/node_modules/react-grid-layout/css/styles.css';
 import '/node_modules/react-resizable/css/styles.css';
 import { toast } from 'sonner';
 
-const { Responsive } = ReactGridLayout;
+const ReactGridLayout = WidthProvider(RGL);
 
 const STORAGE_KEY = 'dashboard-layout';
 
