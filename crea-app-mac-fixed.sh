@@ -85,10 +85,11 @@ cat > electron-app/package.json << 'PKGJSON'
 }
 PKGJSON
 
-# Main.js per Electron (solo frontend)
+# Main.js per Electron (solo frontend) - FIX PATH
 cat > electron-app/main.js << 'MAINJS'
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const url = require('url');
 
 let mainWindow;
 
@@ -106,8 +107,17 @@ function createWindow() {
     backgroundColor: '#f8fafc'
   });
 
-  // Carica index.html
-  mainWindow.loadFile(path.join(__dirname, 'build', 'index.html'));
+  // Fix: usa il path corretto in produzione
+  const startUrl = url.format({
+    pathname: path.join(__dirname, 'build', 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  });
+
+  mainWindow.loadURL(startUrl);
+
+  // Apri DevTools automaticamente per debug
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
