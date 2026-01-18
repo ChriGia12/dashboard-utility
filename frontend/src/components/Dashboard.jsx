@@ -17,11 +17,12 @@ const STORAGE_KEY = 'dashboard-layout';
 
 const defaultLayout = [
   { i: 'clock', x: 0, y: 0, w: 3, h: 2, minW: 2, minH: 2 },
-  { i: 'countdown', x: 3, y: 0, w: 4, h: 4, minW: 3, minH: 3 },
-  { i: 'todo', x: 7, y: 0, w: 5, h: 4, minW: 3, minH: 3 },
+  { i: 'spotify', x: 3, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
+  { i: 'countdown', x: 6, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
+  { i: 'todo', x: 9, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
   { i: 'pomodoro', x: 0, y: 2, w: 3, h: 3, minW: 2, minH: 2 },
-  { i: 'notes', x: 3, y: 4, w: 6, h: 4, minW: 3, minH: 3 },
-  { i: 'shortcuts', x: 9, y: 4, w: 3, h: 3, minW: 2, minH: 2 },
+  { i: 'notes', x: 0, y: 5, w: 6, h: 4, minW: 3, minH: 3 },
+  { i: 'shortcuts', x: 6, y: 4, w: 3, h: 3, minW: 2, minH: 2 },
 ];
 
 export const Dashboard = () => {
