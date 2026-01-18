@@ -40,31 +40,46 @@ export const NewsWidget = () => {
 
   const fetchRealSportNews = async () => {
     if (NEWS_API_KEY === 'TUA_API_KEY_QUI') {
+      console.log('NewsWidget: API key non configurata, uso mock');
       return;
     }
 
     setLoading(true);
+    console.log('NewsWidget: Chiamata API in corso...');
+    
     try {
       // Cerca notizie sportive italiane
       const response = await fetch(
         `https://newsapi.org/v2/top-headlines?country=it&category=sports&pageSize=15&apiKey=${NEWS_API_KEY}`
       );
       
+      console.log('NewsWidget: Response status:', response.status);
+      
       if (response.ok) {
         const data = await response.json();
-        const formattedNews = data.articles.map((article, index) => ({
-          id: index,
-          title: article.title,
-          source: article.source.name,
-          time: getTimeAgo(new Date(article.publishedAt)),
-          category: 'Sport',
-          url: article.url
-        }));
-        setNews(formattedNews);
-        setIsReal(true);
+        console.log('NewsWidget: Articoli ricevuti:', data.articles?.length || 0);
+        
+        if (data.articles && data.articles.length > 0) {
+          const formattedNews = data.articles.map((article, index) => ({
+            id: index,
+            title: article.title,
+            source: article.source.name,
+            time: getTimeAgo(new Date(article.publishedAt)),
+            category: 'Sport',
+            url: article.url
+          }));
+          setNews(formattedNews);
+          setIsReal(true);
+          console.log('NewsWidget: Notizie reali caricate con successo!');
+        } else {
+          console.log('NewsWidget: Nessun articolo ricevuto, uso mock');
+        }
+      } else {
+        const errorData = await response.json();
+        console.error('NewsWidget: Errore API:', errorData);
       }
     } catch (error) {
-      console.log('Notizie non disponibili, uso dati simulati');
+      console.error('NewsWidget: Errore fetch:', error);
     } finally {
       setLoading(false);
     }
