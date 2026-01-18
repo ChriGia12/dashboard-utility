@@ -74,7 +74,7 @@ export const Dashboard = () => {
 
   const widgets = {
     clock: <ClockWidget />,
-    spotify: <SpotifyWidget />,
+    calculator: <CalculatorWidget />,
     countdown: <CountdownWidget />,
     todo: <TodoWidget />,
     notes: <NotesWidget />,
