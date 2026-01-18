@@ -6,10 +6,8 @@ export const ShortcutsWidget = () => {
     { id: 2, name: 'Drive', icon: HardDrive, url: 'https://drive.google.com', color: 'text-yellow-500' },
     { id: 3, name: 'YouTube', icon: Youtube, url: 'https://youtube.com', color: 'text-red-600' },
     { id: 4, name: 'Maps', icon: MapPin, url: 'https://maps.google.com', color: 'text-green-500' },
-    { id: 5, name: 'ChatGPT', icon: Bot, url: 'https://chat.openai.com', color: 'text-emerald-500' },
-    { id: 6, name: 'Amazon', icon: ShoppingCart, url: 'https://amazon.it', color: 'text-orange-500' },
-    { id: 7, name: 'Netflix', icon: Clapperboard, url: 'https://netflix.com', color: 'text-red-600' },
-    { id: 8, name: 'Prime', icon: Play, url: 'https://primevideo.com', color: 'text-blue-400' },
+    { id: 5, name: 'Netflix', icon: Clapperboard, url: 'https://netflix.com', color: 'text-red-600' },
+    { id: 6, name: 'Prime', icon: Play, url: 'https://primevideo.com', color: 'text-blue-400' },
   ];
 
   const handleClick = (url) => {
@@ -26,18 +24,18 @@ export const ShortcutsWidget = () => {
           <span className="widget-title">Collegamenti Rapidi</span>
         </div>
       </div>
-      <div className="flex-1 p-2 overflow-auto">
-        <div className="grid grid-cols-2 gap-2">
+      <div className="flex-1 p-4 overflow-auto">
+        <div className="grid grid-cols-2 gap-3">
           {shortcuts.map((shortcut) => {
             const IconComponent = shortcut.icon;
             return (
               <button
                 key={shortcut.id}
                 onClick={() => handleClick(shortcut.url)}
-                className="flex flex-col items-center justify-center p-2 rounded-lg bg-muted/50 hover:bg-muted hover:scale-105 transition-all group cursor-pointer border-0"
+                className="flex flex-col items-center justify-center p-4 rounded-lg bg-muted/50 hover:bg-muted hover:scale-105 transition-all group cursor-pointer border-0"
               >
-                <IconComponent className={`h-6 w-6 mb-1 ${shortcut.color} group-hover:scale-110 transition-transform`} />
-                <span className="text-[10px] font-medium text-foreground text-center">
+                <IconComponent className={`h-8 w-8 mb-2 ${shortcut.color} group-hover:scale-110 transition-transform`} />
+                <span className="text-xs font-medium text-foreground text-center">
                   {shortcut.name}
                 </span>
               </button>
