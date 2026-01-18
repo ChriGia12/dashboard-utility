@@ -3,65 +3,67 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useState, useEffect } from 'react';
 
 // News API - Ottieni la tua chiave su https://newsapi.org/
-const NEWS_API_KEY = 'demo'; // L'utente dovrà inserire la propria chiave
+// ISTRUZIONI: Sostituisci 'TUA_API_KEY_QUI' con la tua chiave gratuita
+const NEWS_API_KEY = 'TUA_API_KEY_QUI';
 
-const mockNews = [
+const mockSportNews = [
   {
     id: 1,
-    title: 'Nuove funzionalità React 19',
-    source: 'React Blog',
-    time: '2 ore fa',
-    category: 'Tecnologia',
-    url: 'https://react.dev'
+    title: 'Milan batte Inter 2-1 nel derby',
+    source: 'Gazzetta dello Sport',
+    time: '1 ora fa',
+    category: 'Calcio',
+    url: '#'
   },
   {
     id: 2,
-    title: 'Italia vince il campionato europeo',
-    source: 'Sport News',
-    time: '4 ore fa',
-    category: 'Sport',
+    title: 'Sinner vince agli Australian Open',
+    source: 'Eurosport',
+    time: '3 ore fa',
+    category: 'Tennis',
     url: '#'
   },
   {
     id: 3,
-    title: 'Mercati in crescita del 3%',
-    source: 'Financial Times',
+    title: 'Ferrari presenta la nuova monoposto',
+    source: 'AutoSprint',
     time: '5 ore fa',
-    category: 'Finanza',
+    category: 'Formula 1',
     url: '#'
   },
   {
     id: 4,
-    title: 'Scoperta scientifica rivoluzionaria',
-    source: 'Science Daily',
+    title: 'Italia convocazioni per amichevole',
+    source: 'FIGC',
     time: '6 ore fa',
-    category: 'Scienza',
+    category: 'Calcio',
     url: '#'
   },
   {
     id: 5,
-    title: 'Nuovo smartphone presentato',
-    source: 'Tech Crunch',
+    title: 'Olimpia Milano in finale di Eurolega',
+    source: 'Sky Sport',
     time: '8 ore fa',
-    category: 'Tecnologia',
+    category: 'Basket',
     url: '#'
   }
 ];
 
 export const NewsWidget = () => {
-  const [news, setNews] = useState(mockNews);
+  const [news, setNews] = useState(mockSportNews);
   const [isReal, setIsReal] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const fetchRealNews = async () => {
-    if (NEWS_API_KEY === 'demo') {
+  const fetchRealSportNews = async () => {
+    if (NEWS_API_KEY === 'TUA_API_KEY_QUI') {
       return;
     }
 
     setLoading(true);
     try {
+      // Cerca notizie sportive italiane
       const response = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=it&pageSize=10&apiKey=${NEWS_API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=it&category=sports&pageSize=15&apiKey=${NEWS_API_KEY}`
       );
       
       if (response.ok) {
@@ -70,11 +72,8 @@ export const NewsWidget = () => {
           id: index,
           title: article.title,
           source: article.source.name,
-          time: new Date(article.publishedAt).toLocaleTimeString('it-IT', {
-            hour: '2-digit',
-            minute: '2-digit'
-          }),
-          category: 'Notizie',
+          time: getTimeAgo(new Date(article.publishedAt)),
+          category: 'Sport',
           url: article.url
         }));
         setNews(formattedNews);
@@ -87,20 +86,35 @@ export const NewsWidget = () => {
     }
   };
 
+  const getTimeAgo = (date) => {
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMs / 3600000);
+    
+    if (diffMins < 60) {
+      return `${diffMins} minuti fa`;
+    } else if (diffHours < 24) {
+      return `${diffHours} ore fa`;
+    } else {
+      return date.toLocaleDateString('it-IT');
+    }
+  };
+
   useEffect(() => {
-    fetchRealNews();
+    fetchRealSportNews();
     // Aggiorna ogni 15 minuti
-    const interval = setInterval(fetchRealNews, 15 * 60 * 1000);
+    const interval = setInterval(fetchRealSportNews, 15 * 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
   const getCategoryColor = (category) => {
     const colors = {
-      'Tecnologia': 'bg-primary/20 text-primary',
-      'Sport': 'bg-success/20 text-success',
-      'Finanza': 'bg-warning/20 text-warning',
-      'Scienza': 'bg-accent/20 text-accent',
-      'Notizie': 'bg-primary/20 text-primary'
+      'Calcio': 'bg-success/20 text-success',
+      'Tennis': 'bg-primary/20 text-primary',
+      'Formula 1': 'bg-destructive/20 text-destructive',
+      'Basket': 'bg-warning/20 text-warning',
+      'Sport': 'bg-accent/20 text-accent'
     };
     return colors[category] || 'bg-muted text-muted-foreground';
   };
@@ -116,7 +130,7 @@ export const NewsWidget = () => {
       <div className="widget-header">
         <div className="flex items-center gap-2">
           <Newspaper className="h-4 w-4 text-primary" />
-          <span className="widget-title">Notizie</span>
+          <span className="widget-title">Notizie Sport</span>
           {!isReal && (
             <span className="text-xs text-muted-foreground">(simulato)</span>
           )}
@@ -157,8 +171,12 @@ export const NewsWidget = () => {
               ))}
             </div>
             {!isReal && (
-              <div className="mt-4 text-xs text-muted-foreground p-2 bg-muted rounded">
-                💡 Per notizie reali, aggiungi la tua API key NewsAPI nel codice
+              <div className="mt-4 text-xs text-muted-foreground p-3 bg-muted rounded">
+                <strong>💡 Per notizie sportive reali:</strong><br/>
+                1. Registrati su <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer" className="text-primary underline">NewsAPI.org</a><br/>
+                2. Ottieni la tua API key gratuita<br/>
+                3. Sostituisci 'TUA_API_KEY_QUI' nel file NewsWidget.jsx<br/>
+                4. Riavvia l'app
               </div>
             )}
           </>
