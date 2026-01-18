@@ -52,6 +52,17 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			'widget-bg': 'hsl(var(--widget-bg))',
+  			'widget-border': 'hsl(var(--widget-border))',
+  			'widget-shadow': 'hsl(var(--widget-shadow))',
+  			success: {
+  				DEFAULT: 'hsl(var(--success))',
+  				foreground: 'hsl(var(--success-foreground))'
+  			},
+  			warning: {
+  				DEFAULT: 'hsl(var(--warning))',
+  				foreground: 'hsl(var(--warning-foreground))'
   			}
   		},
   		keyframes: {
