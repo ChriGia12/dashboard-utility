@@ -20,18 +20,24 @@ export const WeatherWidget = () => {
   // Funzione per ottenere meteo reale
   const fetchRealWeather = async () => {
     if (WEATHER_API_KEY === 'TUA_API_KEY_QUI') {
-      // Usa dati simulati se non c'è API key
+      console.log('WeatherWidget: API key non configurata, uso mock');
       return;
     }
 
     setLoading(true);
+    console.log('WeatherWidget: Chiamata API in corso per', CITY);
+    
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${WEATHER_API_KEY}&units=metric&lang=it`
       );
       
+      console.log('WeatherWidget: Response status:', response.status);
+      
       if (response.ok) {
         const data = await response.json();
+        console.log('WeatherWidget: Dati ricevuti:', data);
+        
         setWeather({
           temp: Math.round(data.main.temp),
           condition: data.weather[0].description,
@@ -40,9 +46,13 @@ export const WeatherWidget = () => {
           location: `${data.name}, Italia`,
           isReal: true
         });
+        console.log('WeatherWidget: Meteo reale caricato con successo!');
+      } else {
+        const errorData = await response.json();
+        console.error('WeatherWidget: Errore API:', errorData);
       }
     } catch (error) {
-      console.log('Meteo non disponibile, uso dati simulati');
+      console.error('WeatherWidget: Errore fetch:', error);
     } finally {
       setLoading(false);
     }
