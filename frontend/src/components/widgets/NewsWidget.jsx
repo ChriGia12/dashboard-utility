@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 // News API - Ottieni la tua chiave su https://newsapi.org/
 // ISTRUZIONI: Sostituisci 'TUA_API_KEY_QUI' con la tua chiave gratuita
-const NEWS_API_KEY = 'TUA_API_KEY_QUI';
+const NEWS_API_KEY = 'bff3afe58e5e4571a21ba15e3537b7a0';
 
 const mockSportNews = [
   {
