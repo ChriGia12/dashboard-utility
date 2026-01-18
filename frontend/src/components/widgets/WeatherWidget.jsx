@@ -3,7 +3,7 @@ import { Cloud, CloudRain, Sun, Wind, MapPin } from 'lucide-react';
 
 // API gratuita OpenWeatherMap - Ottieni la tua chiave su https://openweathermap.org/api
 // ISTRUZIONI: Sostituisci 'TUA_API_KEY_QUI' con la tua chiave gratuita
-const WEATHER_API_KEY = 'TUA_API_KEY_QUI';
+const WEATHER_API_KEY = 'bb54dd1288b209388a1cb51b5f2d8f51';
 const CITY = 'Bologna';
 
 export const WeatherWidget = () => {
