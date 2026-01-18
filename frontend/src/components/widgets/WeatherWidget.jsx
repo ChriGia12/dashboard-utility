@@ -12,7 +12,7 @@ export const WeatherWidget = () => {
     condition: 'Soleggiato',
     humidity: 65,
     wind: 12,
-    location: 'Milano, Italia',
+    location: 'Bologna, Italia',
     isReal: false
   });
   const [loading, setLoading] = useState(false);
