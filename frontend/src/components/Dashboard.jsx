@@ -91,7 +91,7 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container" ref={containerRef}>
       <div className="mb-4 flex items-center justify-between bg-card border border-border rounded-xl p-3 shadow-md">
         <div className="flex items-center gap-3">
           <GripVertical className="h-5 w-5 text-primary" />
@@ -127,12 +127,13 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      <ResponsiveGridLayout
+      <Responsive
         className="layout"
         layouts={{ lg: layout }}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
         cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
         rowHeight={40}
+        width={width}
         onLayoutChange={onLayoutChange}
         isDraggable={true}
         isResizable={true}
@@ -146,7 +147,7 @@ export const Dashboard = () => {
             {widgets[item.i]}
           </div>
         ))}
-      </ResponsiveGridLayout>
+      </Responsive>
     </div>
   );
 };
