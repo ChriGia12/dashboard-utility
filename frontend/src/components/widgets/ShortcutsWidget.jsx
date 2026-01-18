@@ -1,13 +1,15 @@
-import { Link, Bookmark, Mail, FileText, Settings, Github, Chrome } from 'lucide-react';
+import { Link, Mail, HardDrive, Youtube, MapPin, Bot, ShoppingCart, Clapperboard, Play } from 'lucide-react';
 
 export const ShortcutsWidget = () => {
   const shortcuts = [
-    { id: 1, name: 'Gmail', icon: Mail, url: 'https://mail.google.com', color: 'text-destructive' },
-    { id: 2, name: 'GitHub', icon: Github, url: 'https://github.com', color: 'text-foreground' },
-    { id: 3, name: 'Drive', icon: FileText, url: 'https://drive.google.com', color: 'text-primary' },
-    { id: 4, name: 'Google', icon: Chrome, url: 'https://google.com', color: 'text-success' },
-    { id: 5, name: 'YouTube', icon: Bookmark, url: 'https://youtube.com', color: 'text-warning' },
-    { id: 6, name: 'Maps', icon: Settings, url: 'https://maps.google.com', color: 'text-accent' },
+    { id: 1, name: 'Gmail', icon: Mail, url: 'https://mail.google.com', color: 'text-red-500' },
+    { id: 2, name: 'Drive', icon: HardDrive, url: 'https://drive.google.com', color: 'text-yellow-500' },
+    { id: 3, name: 'YouTube', icon: Youtube, url: 'https://youtube.com', color: 'text-red-600' },
+    { id: 4, name: 'Maps', icon: MapPin, url: 'https://maps.google.com', color: 'text-green-500' },
+    { id: 5, name: 'ChatGPT', icon: Bot, url: 'https://chat.openai.com', color: 'text-emerald-500' },
+    { id: 6, name: 'Amazon', icon: ShoppingCart, url: 'https://amazon.it', color: 'text-orange-500' },
+    { id: 7, name: 'Netflix', icon: Clapperboard, url: 'https://netflix.com', color: 'text-red-600' },
+    { id: 8, name: 'Prime', icon: Play, url: 'https://primevideo.com', color: 'text-blue-400' },
   ];
 
   const handleClick = (url) => {
