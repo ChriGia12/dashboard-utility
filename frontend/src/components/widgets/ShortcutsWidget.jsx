@@ -26,17 +26,17 @@ export const ShortcutsWidget = () => {
           <span className="widget-title">Collegamenti Rapidi</span>
         </div>
       </div>
-      <div className="flex-1 p-4">
-        <div className="grid grid-cols-2 gap-3">
+      <div className="flex-1 p-2 overflow-auto">
+        <div className="grid grid-cols-2 gap-2">
           {shortcuts.map((shortcut) => {
             const IconComponent = shortcut.icon;
             return (
               <button
                 key={shortcut.id}
                 onClick={() => handleClick(shortcut.url)}
-                className="flex flex-col items-center justify-center p-4 rounded-lg bg-muted/50 hover:bg-muted hover:scale-105 transition-all group cursor-pointer border-0"
+                className="flex flex-col items-center justify-center p-2 rounded-lg bg-muted/50 hover:bg-muted hover:scale-105 transition-all group cursor-pointer border-0"
               >
-                <IconComponent className={`h-8 w-8 mb-2 ${shortcut.color} group-hover:scale-110 transition-transform`} />
+                <IconComponent className={`h-6 w-6 mb-1 ${shortcut.color} group-hover:scale-110 transition-transform`} />
                 <span className="text-xs font-medium text-foreground text-center">
                   {shortcut.name}
                 </span>
