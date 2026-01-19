@@ -12,34 +12,47 @@ export const CalculatorWidget = () => {
   // Gestione input tastiera
   useEffect(() => {
     const handleKeyPress = (e) => {
-      e.preventDefault();
+      // Ignora se stai scrivendo in un input, textarea o elemento editabile
+      const activeElement = document.activeElement;
+      const isTyping = activeElement.tagName === 'INPUT' || 
+                       activeElement.tagName === 'TEXTAREA' || 
+                       activeElement.isContentEditable;
+      
+      if (isTyping) return;
       
       // Numeri
       if (e.key >= '0' && e.key <= '9') {
+        e.preventDefault();
         inputDigit(e.key);
       }
       // Operatori
       else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        e.preventDefault();
         performOperation(e.key);
       }
       // Decimale
       else if (e.key === '.' || e.key === ',') {
+        e.preventDefault();
         inputDecimal();
       }
       // Calcola
       else if (e.key === 'Enter' || e.key === '=') {
+        e.preventDefault();
         performOperation('=');
       }
       // Cancella ultimo
       else if (e.key === 'Backspace') {
+        e.preventDefault();
         handleBackspace();
       }
       // Reset
       else if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') {
+        e.preventDefault();
         clearDisplay();
       }
       // Percentuale
       else if (e.key === '%') {
+        e.preventDefault();
         inputPercent();
       }
     };
