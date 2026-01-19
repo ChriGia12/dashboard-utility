@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CheckCircle2, Circle, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
+const TODOS_STORAGE_KEY = 'dashboard-todos';
+
 export const TodoWidget = () => {
-  const [todos, setTodos] = useState([
-    { id: 1, text: 'Controllare email', completed: false },
-    { id: 2, text: 'Preparare presentazione', completed: true },
-    { id: 3, text: 'Call con il team', completed: false }
-  ]);
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem(TODOS_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [
+      { id: 1, text: 'Controllare email', completed: false },
+      { id: 2, text: 'Preparare presentazione', completed: true },
+      { id: 3, text: 'Call con il team', completed: false }
+    ];
+  });
   const [newTodo, setNewTodo] = useState('');
+
+  // Salva i todos quando cambiano
+  useEffect(() => {
+    localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = () => {
     if (newTodo.trim()) {
