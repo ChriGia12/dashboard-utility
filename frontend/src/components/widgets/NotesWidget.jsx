@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StickyNote, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 
+const NOTES_STORAGE_KEY = 'dashboard-notes';
+
 export const NotesWidget = () => {
-  const [notes, setNotes] = useState([
-    { id: 1, content: 'Ricordare di chiamare Marco', color: 'bg-warning/20' },
-    { id: 2, content: 'Idee per il nuovo progetto:\n- Dashboard interattiva\n- Widget personalizzabili', color: 'bg-accent/20' },
-  ]);
+  const [notes, setNotes] = useState(() => {
+    const saved = localStorage.getItem(NOTES_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [
+      { id: 1, content: 'Ricordare di chiamare Marco', color: 'bg-warning/20' },
+      { id: 2, content: 'Idee per il nuovo progetto:\n- Dashboard interattiva\n- Widget personalizzabili', color: 'bg-accent/20' },
+    ];
+  });
   const [isAdding, setIsAdding] = useState(false);
   const [newNote, setNewNote] = useState('');
+
+  // Salva le note quando cambiano
+  useEffect(() => {
+    localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
+  }, [notes]);
 
   const colors = ['bg-warning/20', 'bg-accent/20', 'bg-success/20', 'bg-primary/20'];
 
